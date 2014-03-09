@@ -135,7 +135,7 @@
       } else if (pattern.length > 0) {
         return [el, new RegExp(pattern), required];
       }
-      
+
       if (this.settings.patterns.hasOwnProperty(type)) {
         return [el, this.settings.patterns[type], required];
       }
@@ -176,8 +176,11 @@
           validations.push(this.valid_equal(el, required, parent));
         } else {
 
-          if (el_patterns[i][1].test(value) && valid_length ||
-            !required && el.value.length < 1 || $(el).attr('disabled')) {
+          if ( ($.isFunction(el_patterns[i][1]) && el_patterns[i][1](value) && valid_length) ||
+            (!$.isFunction(el_patterns[i][1]) && el_patterns[i][1].test(value) && valid_length) ||
+            (!required && el.value.length < 1) ||
+            $(el).attr('disabled'))){
+
             this.S(el).removeAttr(this.invalid_attr);
             parent.removeClass('error');
             if (label.length > 0 && this.settings.error_labels) label.removeClass('error');
