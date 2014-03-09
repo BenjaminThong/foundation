@@ -179,7 +179,7 @@
           if ( ($.isFunction(el_patterns[i][1]) && el_patterns[i][1](value) && valid_length) ||
             (!$.isFunction(el_patterns[i][1]) && el_patterns[i][1].test(value) && valid_length) ||
             (!required && el.value.length < 1) ||
-            $(el).attr('disabled'))){
+            $(el).attr('disabled')){
 
             this.S(el).removeAttr(this.invalid_attr);
             parent.removeClass('error');
