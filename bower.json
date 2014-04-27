@@ -4,6 +4,7 @@
   "main": [
     "css/foundation.css",
     "js/foundation.js"
+    "js/foundation/foundation.tooltip.js"
   ],
   "dependencies": {
     "jquery": ">= 2.1.0",
