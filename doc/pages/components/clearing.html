@@ -1,9 +1,6 @@
 ---
 title: Clearing
-layout: doc/layouts/default.html
 ---
-
-# Clearing
 
 <h3 class="subheader">Since we didn't intend Orbit to handle variable-height content, we decided to create a plugin that would. Clearing makes it easy to create responsive lightboxes with any size image.</h3>
 
@@ -51,6 +48,12 @@ Another common use-case for Lightboxes is to include a caption per image. We've 
 
 ***
 
+## Accessibility
+
+<p class="panel">This component is not yet accessible. Stay tuned for updates in future releases.</p>
+
+***
+
 ## Available SCSS Variables
 
 We opted not to create mixins for this plugin because it relies on classes in the JS to work. These variables should give you the control you need to change styles as you see fit:
@@ -82,6 +85,25 @@ Clearing supports `data-options` on-the-fly configuration:
 <h4>JS</h4>
 
 {{> examples_clearing_data_options}}
+
+### Available Javascript Events
+
+Clearing supports several javascript events that you can listen to:
+
+<ul>
+  <li><code>open.fndtn.clearing</code> before a thumbnail is expanded</li>
+  <li><code>opened.fndtn.clearing</code> after the large image has opened</li>
+  <li><code>close.fndtn.clearing</code> before the large image is closed</li>
+  <li><code>closed.fndtn.clearing</code> after the large image has closed</li>
+  <li><code>change.fndtn.clearing</code> when the large image changes</li>
+  <li><code>resized.fndtn.clearing</code> after the large image is resized, before it becomes visible</li>
+</ul>
+
+<p>Here is an example of binding to the open event.</p>
+
+<h4>JS</h4>
+
+{{> examples_clearing_events}}
 
 ***
 
